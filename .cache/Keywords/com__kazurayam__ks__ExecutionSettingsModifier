@@ -1,10 +1,10 @@
 {
-  "keywordFileContentHash": "BD2BFDE70453D407C970D4ABBE30948C",
+  "keywordFileContentHash": "E0827A1010DA0D28143126C5DCD20E17",
   "keywordClasses": [
     {
       "name": "com.kazurayam.ks.ExecutionSettingsModifier",
       "keywordMethods": []
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }
