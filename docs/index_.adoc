@@ -6,9 +6,25 @@ All Katalon Studio users should be familiar with the "Project Setting > Excecuti
 
 image:https://kazurayam.gighub.io/KS_RunConfigurationModifier/images/ProjectSettings_Execution.png[]
 
+Let's look at the `Default wait for element timeout (in seconds)`. Of course, you can change the value during the authoring time before you run your Test Cases. Now I want to update the timeout value programatically runtime. Is it possbile?
 
+Katalon API includes a class `com.kms.katalon.core.configuration.RunConfiguration` which implements a method `int getTimeOut()`
 
-== Adding a method into RunConfiguration class that pretty-prints the Execution Setting
+- https://api-docs.katalon.com/com/kms/katalon/core/configuration/RunConfiguration.html#getTimeOut()
+
+The value of `Default wait for element timeout (in seconds)` configured in the Katalon Studio GUI is made accessible as the return of `int getTimeOut()` method.
+
+Howerver, `RunConfiguration` class has no `setTimeOut(int)` method. Therefore it seems that Katalon does not support a capability to update the timeout value by user codes. --- But I want to know how to hack it.
+
+== Solution
+
+You can read the source code of `com.kms.katalon.core.configuration.RunConfiguration` class. The source code is distributed bundled in the Katalon Studio. You can find it in the `<Katalon Studio installation folder>/Contents/Eclipse/configuration/resources/source/com.kms.katalon.core/com.kms.katalon.core-sources.jar`.
+
+By a deep study in the source code, I found a way of hacking. See the following solution described.
+
+== Description
+
+=== Adding a method into RunConfiguration class that pretty-prints the Execution Setting
 
 [source,groovy]
 ----
@@ -158,7 +174,7 @@ The call to `RunConfigurationModifier.implementPrettyPrintExecutionSetting()` dy
 
 The call to `RunConfiguration.prettyPrintExecutionSetting()` prints the content of the `localExecutionSettingMapStorage` variable inside the `RunConfiguration` object, which contains the values set in the `Project Settings > Execution` GUI window of Katalon Studio.
 
-== Updating the `Project Settings > Execution > Default wait for element timeout (in secods)` on the fly
+=== Updating the `Project Settings > Execution > Default wait for element timeout (in secods)` on the fly
 
 [source,groovy]
 ----
@@ -179,7 +195,7 @@ After modifying:  RunConfiguration.getTimeOut()=8
 情報: END Test Cases/updateDefaultTimeOut
 ----
 
-== How is it implemented?
+=== How is it implemented?
 
 Please read the source of `com.kazurayam.ks.RunConfigurationModifier` classs. Here I would quote it:
 
@@ -188,11 +204,9 @@ Please read the source of `com.kazurayam.ks.RunConfigurationModifier` classs. He
 include::../Keywords/com/kazurayam/ks/RunConfigurationModifier.groovy[]
 ----
 
-In order to understand this, you also need to read the source code of `com.kms.katalon.core.configuration.RunConfiguration` class. The source code is distributed bundled in the Katalon Studio. You can find it in the `<Katalon Studio installation folder>/Contents/Eclipse/configuration/resources/source/com.kms.katalon.core/com.kms.katalon.core-sources.jar`.
-
 In the `implementPrettyPrintExecutionSetting()` method, I used the https://www.groovy-lang.org/metaprogramming.html#metaprogramming_emc[Groovy's Meta-programming technique]. With this technique, the method dynamically injects the `prettyPrintExecutionSetting` method, which converts the `localExecutionSettingMap` variable of Groovy `Map` type into a pretty-formatted JSON String, and println it into the console.
 
 The JSON tells you the internal data struction in the RunConfiguration object.
 
-You should read the source of the `com.kms.katalon.core.configuration.RunConfiguration` and find the `setExecutionSetting(Map)` method is provided. Using this method, it is possible to update the content of the exectuion setting contained in the `RunConfiguration` object. the `updateTimeOut` method ofhte `RunConfigurationModifier` is a mere example how to make use of this capability.
+You should find the `setExecutionSetting(Map)` method is implemented in the `com.kms.katalon.core.configuration.RunConfiguration` class. Using this method, it is possible to update the content of the exectuion setting contained in the `RunConfiguration` object. The `updateTimeOut` method of the `RunConfigurationModifier` is a mere example how to make use of this capability. If you would like, you should be able to update many more items in the `Project Setting > Execution`. Please try it yourself.
 
