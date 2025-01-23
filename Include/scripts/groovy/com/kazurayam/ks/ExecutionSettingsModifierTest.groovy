@@ -14,29 +14,29 @@ public class ExecutionSettingsModifierTest {
 
 	@Test
 	void test_getExecutionPropertiesFile() {
-		Path file = ExecutionSettingsModifier.getExecutionPropertiesFile()
+		Path file = RunConfigurationModifier.getExecutionPropertiesFile()
 		assertTrue(Files.exists(file))	
 	}
 	
 	@Test
 	void test_getExecutionProperties() {
-		Properties props = ExecutionSettingsModifier.getExecutionProperties()
+		Properties props = RunConfigurationModifier.getExecutionProperties()
 		assertNotNull(props)
 		assertEquals('25', props.get("execution.default.timeout"))	
 	}
 	
 	@Test
 	void test_modifyExecutionProerty() {
-		ExecutionSettingsModifier.modifyExecutionProperty("execution.default.timeout", "13")
+		RunConfigurationModifier.modifyExecutionProperty("execution.default.timeout", "13")
 		//
-		Properties props = ExecutionSettingsModifier.getExecutionProperties()
+		Properties props = RunConfigurationModifier.getExecutionProperties()
 		assertEquals('13', props.get("execution.default.timeout"))
 	}
 	
 	@Test
 	void testFoo() {
 		int expected = 21
-		int actual = ExecutionSettingsModifier.foo(21)
+		int actual = RunConfigurationModifier.foo(21)
 		assertThat(actual, is(expected))
 	}
 }

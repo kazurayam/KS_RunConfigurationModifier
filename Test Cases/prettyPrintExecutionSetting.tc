@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>TC1</name>
+   <name>prettyPrintExecutionSetting</name>
    <tag></tag>
    <comment></comment>
+   <recordOption>OTHER</recordOption>
    <testCaseGuid>6bc54e69-144b-4a86-ad64-908884542a7f</testCaseGuid>
 </TestCaseEntity>
