@@ -1,3 +1,5 @@
+// Test Cases/updateDefaultTimeOut
+
 import com.kms.katalon.core.configuration.RunConfiguration
 import com.kazurayam.ks.RunConfigurationModifier
 
@@ -6,10 +8,10 @@ assert RunConfiguration.getTimeOut() == 30
 
 
 RunConfigurationModifier.updateTimeOut(8)
-// the above line is the same as the following 2 lines
+
+// the above line is the same as the following line
 /*
-def update = ["execution": ["general": ["timeout": 8 ]]]
-RunConfiguration.setExecutionSetting(update)
+RunConfiguration.setExecutionSetting(["execution": ["general": ["timeout": 8 ]]])
  */
 
 println "After modifying:  RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()

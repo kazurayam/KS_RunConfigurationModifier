@@ -18,7 +18,7 @@ public class RunConfigurationModifier {
 			println prettyJson
 		}
 	}
-	
+
 	@Keyword
 	public static void updateTimeOut(int seconds) {
 		implementPrettyPrintExecutionSetting()
