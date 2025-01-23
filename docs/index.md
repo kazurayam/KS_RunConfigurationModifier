@@ -4,7 +4,7 @@
 
 All Katalon Studio users should be familiar with the "Project Setting &gt; Excecution" dialog of the Katalon Studio GUI as follows:
 
-![ProjectSettings Execution](https://kazurayam.gighub.io/KS_RunConfigurationModifier/images/ProjectSettings_Execution.png)
+![ProjectSettings Execution](https://kazurayam.github.io/KS_RunConfigurationModifier/images/ProjectSettings_Execution.png)
 
 Let’s look at the `Default wait for element timeout (in seconds)`. Of course, you can change the value during the authoring time before you run your Test Cases. Now I want to update the timeout value programatically runtime. Is it possbile?
 
