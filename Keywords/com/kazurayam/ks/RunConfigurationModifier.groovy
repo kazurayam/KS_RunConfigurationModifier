@@ -14,8 +14,7 @@ public class RunConfigurationModifier {
 			ObjectMapper mapper = new ObjectMapper();
 			ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter()
 			String prettyJson = writer.writeValueAsString(localExecutionSettingMapStorage)
-			println "localExecutionSettingMapStorage:"
-			println prettyJson
+			return prettyJson
 		}
 	}
 

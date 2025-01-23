@@ -12,13 +12,13 @@ Katalon API includes a class `com.kms.katalon.core.configuration.RunConfiguratio
 
 -   <https://api-docs.katalon.com/com/kms/katalon/core/configuration/RunConfiguration.html#getTimeOut()>
 
-The value of `Default wait for element timeout (in seconds)` configured in the Katalon Studio GUI is made accessible as the return of `int getTimeOut()` method.
+The value of `Default wait for element timeout (in seconds)` is made accessible as the return of `int getTimeOut()` method.
 
 Howerver, `RunConfiguration` class has no `setTimeOut(int)` method. Therefore it seems that Katalon does not support a capability to update the timeout value by user codes. --- But I want to know how to hack it.
 
 ## Solution
 
-You can read the source code of `com.kms.katalon.core.configuration.RunConfiguration` class. The source code is distributed bundled in the Katalon Studio. You can find it in the `<Katalon Studio installation folder>/Contents/Eclipse/configuration/resources/source/com.kms.katalon.core/com.kms.katalon.core-sources.jar`.
+You can read the source code of `com.kms.katalon.core.configuration.RunConfiguration` class. The source code is bundled in the Katalon Studio distribution. You can find it in the `<Katalon Studio installation folder>/Contents/Eclipse/configuration/resources/source/com.kms.katalon.core/com.kms.katalon.core-sources.jar`.
 
 By a deep study in the source code, I found a way of hacking. See the following solution described.
 
@@ -33,7 +33,10 @@ By a deep study in the source code, I found a way of hacking. See the following 
 
     RunConfigurationModifier.implementPrettyPrintExecutionSetting()
 
-    RunConfiguration.prettyPrintExecutionSetting()
+    String prettyJson = RunConfiguration.prettyPrintExecutionSetting()
+
+    println "localExecutionSettingMapStorage:"
+    println prettyJson
 
 When I ran this, I got the following output in the console:
 
@@ -175,7 +178,7 @@ The call to `RunConfigurationModifier.implementPrettyPrintExecutionSetting()` dy
 
 The call to `RunConfiguration.prettyPrintExecutionSetting()` prints the content of the `localExecutionSettingMapStorage` variable inside the `RunConfiguration` object, which contains the values set in the `Project Settings > Execution` GUI window of Katalon Studio.
 
-### Updating the `Project Settings > Execution > Default wait for element timeout (in secods)` on the fly
+### Updating `Project Settings > Execution > Default wait for element timeout`
 
     // Test Cases/updateDefaultTimeOut
 
@@ -193,7 +196,7 @@ The call to `RunConfiguration.prettyPrintExecutionSetting()` prints the content 
     RunConfiguration.setExecutionSetting(["execution": ["general": ["timeout": 8 ]]])
      */
 
-    println "After modifying:  RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
+    println "After  modifying: RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
     assert RunConfiguration.getTimeOut() == 8
 
 When I ran this I got the following output in the console:
@@ -203,7 +206,7 @@ When I ran this I got the following output in the console:
     1月 23, 2025 8:56:34 午後 com.kms.katalon.core.logging.KeywordLogger startTest
     情報: START Test Cases/updateDefaultTimeOut
     Before modifying: RunConfiguration.getTimeOut()=30
-    After modifying:  RunConfiguration.getTimeOut()=8
+    After  modifying: RunConfiguration.getTimeOut()=8
     1月 23, 2025 8:56:35 午後 com.kms.katalon.core.logging.KeywordLogger endTest
     情報: END Test Cases/updateDefaultTimeOut
 
@@ -227,8 +230,7 @@ Please read the source of `com.kazurayam.ks.RunConfigurationModifier` classs. He
                 ObjectMapper mapper = new ObjectMapper();
                 ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter()
                 String prettyJson = writer.writeValueAsString(localExecutionSettingMapStorage)
-                println "localExecutionSettingMapStorage:"
-                println prettyJson
+                return prettyJson
             }
         }
 
@@ -240,8 +242,12 @@ Please read the source of `com.kazurayam.ks.RunConfigurationModifier` classs. He
         }
     }
 
-In the `implementPrettyPrintExecutionSetting()` method, I used the [Groovy’s Meta-programming technique](https://www.groovy-lang.org/metaprogramming.html#metaprogramming_emc). With this technique, the method dynamically injects the `prettyPrintExecutionSetting` method, which converts the `localExecutionSettingMap` variable of Groovy `Map` type into a pretty-formatted JSON String, and println it into the console.
+#### implementPrettyPrintExecutionSetting method
 
-The JSON tells you the internal data struction in the RunConfiguration object.
+In the `implementPrettyPrintExecutionSetting()` method, I used the [Groovy’s Meta-programming technique](https://www.groovy-lang.org/metaprogramming.html#metaprogramming_emc). With this technique, the `prettyPrintExecutionSetting` method is added to the `RunConfiguration` class, which converts the `localExecutionSettingMapStorage` variable of Groovy `Map` type into a pretty-formatted JSON String. The JSON tells you the internal data structure of the RunConfiguration object.
 
-You should find the `setExecutionSetting(Map)` method is implemented in the `com.kms.katalon.core.configuration.RunConfiguration` class. Using this method, it is possible to update the content of the exectuion setting contained in the `RunConfiguration` object. The `updateTimeOut` method of the `RunConfigurationModifier` is a mere example how to make use of this capability. If you would like, you should be able to update many more items in the `Project Setting > Execution`. Please try it yourself.
+#### updateTimeOut method
+
+You should find, in the `com.kms.katalon.core.configuration.RunConfiguration` class, the `setExecutionSetting(Map)` method is implemented. Using this method, it is possible to update the content of the execution setting contained in the `RunConfiguration` object. The `updateTimeOut` method of the `RunConfigurationModifier` is a mere example how to make use of this capability.
+
+If you would like, you should be able to add more methods that update other items in the `Project Setting > Execution`. Please try it yourself.

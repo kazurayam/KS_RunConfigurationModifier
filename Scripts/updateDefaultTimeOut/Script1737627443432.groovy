@@ -14,5 +14,5 @@ RunConfigurationModifier.updateTimeOut(8)
 RunConfiguration.setExecutionSetting(["execution": ["general": ["timeout": 8 ]]])
  */
 
-println "After modifying:  RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
+println "After  modifying: RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
 assert RunConfiguration.getTimeOut() == 8

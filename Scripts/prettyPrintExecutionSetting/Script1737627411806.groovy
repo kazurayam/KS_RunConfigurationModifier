@@ -5,4 +5,7 @@ import com.kazurayam.ks.RunConfigurationModifier
 
 RunConfigurationModifier.implementPrettyPrintExecutionSetting()
 
-RunConfiguration.prettyPrintExecutionSetting()
+String prettyJson = RunConfiguration.prettyPrintExecutionSetting()
+
+println "localExecutionSettingMapStorage:"
+println prettyJson
