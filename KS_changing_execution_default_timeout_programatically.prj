@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Project>
    <description></description>
-   <name>KS_changing_execution_default_timeout_programatically</name>
+   <name>KS_RunConfigurationModifier</name>
    <tag></tag>
    <UUID>5daab4f9-1d83-49cd-837d-80f281b06248</UUID>
    <migratedVersion>5.9.0</migratedVersion>
    <pageLoadTimeout>0</pageLoadTimeout>
-   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/KS_changing_execution_default_timeout_programatically/KS_changing_execution_default_timeout_programatically.prj</projectFileLocation>
+   <projectFileLocation>/Users/kazuakiurayama/katalon-workspace/KS_RunConfigurationModifier/KS_changing_execution_default_timeout_programatically.prj</projectFileLocation>
    <sourceContent>
       <sourceFolderList>
          <sourceFolderConfiguration>
