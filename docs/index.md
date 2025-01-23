@@ -21,11 +21,11 @@ When I ran this, I got the following output in the console:
     {
       "runningMode" : "GUI",
       "allowCustomizeRequestResponseSizeLimit" : false,
-      "source" : "/Users/kazuakiurayama/katalon-workspace/KS_RunConfigurationModifier/Test Cases/prettyPrintExecutionSetting.tc",
+      "source" : "/Users/kazurayam/katalon-workspace/KS_RunConfigurationModifier/Test Cases/prettyPrintExecutionSetting.tc",
       "katalon.versionNumber" : "10.0.1",
       "Name" : "Chrome",
       "host" : {
-        "hostName" : "kazuakiurayama - localhost",
+        "hostName" : "kazurayam - localhost",
         "os" : "Mac OS X 64bit",
         "hostPort" : 54160.0,
         "hostAddress" : "127.0.0.1"
@@ -34,7 +34,7 @@ When I ran this, I got the following output in the console:
       "id" : "Test Cases/prettyPrintExecutionSetting",
       "allowCustomizeRequestTimeout" : false,
       "executedEntity" : "TestCase",
-      "projectDir" : "/Users/kazuakiurayama/katalon-workspace/KS_RunConfigurationModifier",
+      "projectDir" : "/Users/kazurayam/katalon-workspace/KS_RunConfigurationModifier",
       "isDebugLaunchMode" : false,
       "logbackConfigFileLocation" : "/Applications/Katalon Studio.app/Contents/Eclipse/configuration/org.eclipse.osgi/86/0/.cp/resources/logback/logback-console.xml",
       "name" : "prettyPrintExecutionSetting",
