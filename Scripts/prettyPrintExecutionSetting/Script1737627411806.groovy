@@ -1,0 +1,6 @@
+import com.kms.katalon.core.configuration.RunConfiguration
+import com.kazurayam.ks.RunConfigurationModifier
+
+RunConfigurationModifier.implementPrettyPrintExecutionSetting()
+
+RunConfiguration.prettyPrintExecutionSetting()
