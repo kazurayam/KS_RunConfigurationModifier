@@ -10,7 +10,7 @@ Let’s look at the `Default wait for element timeout (in seconds)`. Of course, 
 
 Katalon API includes a class `com.kms.katalon.core.configuration.RunConfiguration` which implements a method `int getTimeOut()`
 
--   <https://api-docs.katalon.com/com/kms/katalon/core/configuration/RunConfiguration.html#getTimeOut(>)
+-   <https://api-docs.katalon.com/com/kms/katalon/core/configuration/RunConfiguration.html#getTimeOut()>
 
 The value of `Default wait for element timeout (in seconds)` configured in the Katalon Studio GUI is made accessible as the return of `int getTimeOut()` method.
 
