@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "7E40B9690D719B620EF935497591F5D8",
+  "keywordFileContentHash": "1075147336D62B30A8281FDF1849F602",
   "keywordClasses": [
     {
       "name": "com.kazurayam.ks.RunConfigurationModifier",
@@ -18,6 +18,25 @@
               "type": {
                 "fullClassName": "int",
                 "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        },
+        {
+          "name": "setLogTestSteps",
+          "parameters": [
+            {
+              "name": "b",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "boolean",
+                "unresolvedClassName": "boolean",
                 "isArray": false,
                 "isGnericsPlaceHolder": false,
                 "hasImmutableClassName": true,

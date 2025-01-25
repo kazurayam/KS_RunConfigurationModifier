@@ -20,8 +20,13 @@ public class RunConfigurationModifier {
 
 	@Keyword
 	public static void updateTimeOut(int seconds) {
-		implementPrettyPrintExecutionSetting()
 		def update = ["execution": ["general": ["timeout": seconds ]]]
+		RunConfiguration.setExecutionSetting(update)
+	}
+
+	@Keyword
+	public static void setLogTestSteps(boolean b) {
+		def update = ["execution": ["logTestSteps": b]]
 		RunConfiguration.setExecutionSetting(update)
 	}
 }

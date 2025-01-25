@@ -2,7 +2,7 @@
 
 ## Problem to solve
 
-All Katalon Studio users should be familiar with the "Project Setting &gt; Excecution" dialog of the Katalon Studio GUI as follows:
+All Katalon Studio users would be familiar with the "Project Setting &gt; Excecution" dialog of the Katalon Studio GUI as follows:
 
 ![ProjectSettings Execution](https://kazurayam.github.io/KS_RunConfigurationModifier/images/ProjectSettings_Execution.png)
 

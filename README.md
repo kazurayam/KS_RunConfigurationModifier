@@ -13,4 +13,4 @@ See the [documentation](https://kazurayam.github.io/KS_RunConfigurationModifier/
 
 # Warning
 
-I tested this project using Katalon Studio v10.0.1. When I tested this using Katalon Studio v9.0.1, the project hanged. I noticed that there is significant code change in the `RunConfiguration` class between these 2 versions, which possiblly caused the halt. So, don't apply this project to the older version Katalon Studio.
+I tested this project using Katalon Studio v10.0.1. When I tested this using Katalon Studio v9.0.1, the project hanged. I noticed that there is significant code change in the `RunConfiguration` class between these 2 versions, which possiblly caused the halt. So, don't apply this project to the v9 and older versions Katalon Studio.
