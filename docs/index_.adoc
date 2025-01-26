@@ -210,3 +210,83 @@ In the `RunConfigurationModifier` class, I used the https://www.groovy-lang.org/
 
 The `implementSetTimeOut` method of the `RunConfigurationModifier` is adds the `setTimeOut(int)` method that is missing in the original `RunConfiguration` class. If you would like, you would be able to add more methods that update other items in the `Project Setting > Execution`. Please try it yourself.
 
+
+
+== Warning: this does not work with Katalon Studio v9
+
+I developed this project using Katalon Studio Free v10.0.1. I tried to run the `Test Cases/prettyPrintExecutionSetting` using v9.0.0 and it hanged with the following message:
+
+[source, text]
+----
+2025-01-26 12:38:40.524 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2025-01-26 12:38:40.557 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/prettyPrintExecutionSetting
+2025-01-26 12:38:41.571 DEBUG testcase.prettyPrintExecutionSetting     - 1: RunConfigurationModifier.implementPrettyPrintExecutionSetting()
+2025-01-26 12:38:41.750 DEBUG testcase.prettyPrintExecutionSetting     - 2: prettyJson = prettyPrintExecutionSetting()
+2025-01-26 12:38:42.755 ERROR c.k.katalon.core.main.TestCaseExecutor   - ❌ Test Cases/prettyPrintExecutionSetting FAILED.
+Reason:
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.kms.katalon.core.configuration.RunConfiguration$1 and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS)
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1306)
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:408)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:53)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:30)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1572)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1273)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsString(ObjectWriter.java:1140)
+	at com.kazurayam.ks.RunConfigurationModifier$_implementPrettyPrintExecutionSetting_closure1.doCall(RunConfigurationModifier.groovy:16)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at prettyPrintExecutionSetting.run(prettyPrintExecutionSetting:8)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:144)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:135)
+	at TempTestCase1737862711294.run(TempTestCase1737862711294.groovy:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+2025-01-26 12:38:42.864 ERROR c.k.katalon.core.main.TestCaseExecutor   - ❌ Test Cases/prettyPrintExecutionSetting FAILED.
+Reason:
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class com.kms.katalon.core.configuration.RunConfiguration$1 and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS)
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77)
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1306)
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:408)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:53)
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:30)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:480)
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:319)
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1572)
+	at com.fasterxml.jackson.databind.ObjectWriter._writeValueAndClose(ObjectWriter.java:1273)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValueAsString(ObjectWriter.java:1140)
+	at com.kazurayam.ks.RunConfigurationModifier$_implementPrettyPrintExecutionSetting_closure1.doCall(RunConfigurationModifier.groovy:16)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at prettyPrintExecutionSetting.run(prettyPrintExecutionSetting:8)
+	at com.kms.katalon.core.main.ScriptEngine.run(ScriptEngine.java:194)
+	at com.kms.katalon.core.main.ScriptEngine.runScriptAsRawText(ScriptEngine.java:119)
+	at com.kms.katalon.core.main.TestCaseExecutor.runScript(TestCaseExecutor.java:448)
+	at com.kms.katalon.core.main.TestCaseExecutor.doExecute(TestCaseExecutor.java:439)
+	at com.kms.katalon.core.main.TestCaseExecutor.processExecutionPhase(TestCaseExecutor.java:418)
+	at com.kms.katalon.core.main.TestCaseExecutor.accessMainPhase(TestCaseExecutor.java:410)
+	at com.kms.katalon.core.main.TestCaseExecutor.execute(TestCaseExecutor.java:285)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:144)
+	at com.kms.katalon.core.main.TestCaseMain.runTestCase(TestCaseMain.java:135)
+	at TempTestCase1737862711294.run(TempTestCase1737862711294.groovy:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+
+2025-01-26 12:38:42.954 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/prettyPrintExecutionSetting
+----
+
+I wouldn't dive into this issue any more.

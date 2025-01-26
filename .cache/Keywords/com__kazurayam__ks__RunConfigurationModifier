@@ -6,22 +6,26 @@
       "keywordMethods": [
         {
           "name": "implementPrettyPrintExecutionSetting",
-          "parameters": []
+          "parameters": [],
+          "javadoc": ""
         },
         {
           "name": "implementSetTimeOut",
-          "parameters": []
+          "parameters": [],
+          "javadoc": ""
         },
         {
           "name": "implementGetLogTestSteps",
-          "parameters": []
+          "parameters": [],
+          "javadoc": ""
         },
         {
           "name": "implementSetLogTestSteps",
-          "parameters": []
+          "parameters": [],
+          "javadoc": ""
         }
       ]
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }
