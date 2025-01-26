@@ -6,6 +6,11 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.kms.katalon.core.annotation.Keyword
 import com.kms.katalon.core.configuration.RunConfiguration
 
+/**
+ * The Jackson-databind-2.17.1.jar is bundled in Katalon Studio v10.0.1
+ * 
+ *
+ */
 public class RunConfigurationModifier {
 
 	@Keyword
@@ -13,7 +18,8 @@ public class RunConfigurationModifier {
 		RunConfiguration.metaClass.'static'.prettyPrintExecutionSetting << {
 			->
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
+			mapper.configure(SerializationFeature.ORDER_MAP_ENTRIES_BY_KEYS, true)
+			//mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
 			ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter()
 			String prettyJson = writer.writeValueAsString(localExecutionSettingMapStorage)
 			return prettyJson

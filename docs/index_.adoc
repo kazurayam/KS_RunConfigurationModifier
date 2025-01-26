@@ -37,44 +37,81 @@ When I ran this, I got the following output in the console:
 
 [source,text]
 ----
-1月 23, 2025 8:50:59 午後 com.kms.katalon.core.logging.KeywordLogger startTest
+1月 27, 2025 8:26:23 午前 com.kms.katalon.core.logging.KeywordLogger startTest
 情報: --------------------
-1月 23, 2025 8:50:59 午後 com.kms.katalon.core.logging.KeywordLogger startTest
+1月 27, 2025 8:26:23 午前 com.kms.katalon.core.logging.KeywordLogger startTest
 情報: START Test Cases/prettyPrintExecutionSetting
 localExecutionSettingMapStorage:
 {
-  "runningMode" : "GUI",
-  "allowCustomizeRequestResponseSizeLimit" : false,
-  "source" : "/Users/kazurayam/katalon-workspace/KS_RunConfigurationModifier/Test Cases/prettyPrintExecutionSetting.tc",
-  "katalon.versionNumber" : "10.0.1",
   "Name" : "Chrome",
-  "host" : {
-    "hostName" : "kazurayam - localhost",
-    "os" : "Mac OS X 64bit",
-    "hostPort" : 54160.0,
-    "hostAddress" : "127.0.0.1"
-  },
-  "katalon.buildNumber" : "223",
-  "id" : "Test Cases/prettyPrintExecutionSetting",
+  "allowCustomizeRequestResponseSizeLimit" : false,
   "allowCustomizeRequestTimeout" : false,
-  "executedEntity" : "TestCase",
-  "projectDir" : "/Users/kazurayam/katalon-workspace/KS_RunConfigurationModifier",
-  "isDebugLaunchMode" : false,
-  "logbackConfigFileLocation" : "/Applications/Katalon Studio.app/Contents/Eclipse/configuration/org.eclipse.osgi/86/0/.cp/resources/logback/logback-console.xml",
-  "name" : "prettyPrintExecutionSetting",
   "allowUsingSelfHealing" : false,
   "allowUsingTimeCapsule" : true,
-  "pluginTestListeners" : [ "KatalonReportListener" ],
-  "sessionServer.host" : "localhost",
   "description" : "",
-  "testops" : { },
+  "executedEntity" : "TestCase",
   "execution" : {
+    "current_testcase" : "Test Cases/prettyPrintExecutionSetting",
+    "drivers" : {
+      "preferences" : {
+        "WebUI" : { }
+      },
+      "system" : {
+        "WebUI" : {
+          "browserType" : "CHROME_DRIVER",
+          "chromeDriverPath" : "/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/drivers/chromedriver_mac/chromedriver"
+        }
+      }
+    },
     "general" : {
+      "actionDelay" : 0.0,
       "autoApplyNeighborXpaths" : false,
-      "ignorePageLoadTimeoutException" : false,
-      "timeCapsuleEnabled" : false,
-      "executionProfile" : "default",
+      "defaultFailureHandling" : "STOP_ON_FAILURE",
+      "defaultPageLoadTimeout" : 30.0,
+      "enablePageLoadTimeout" : false,
       "excludeKeywords" : [ "verifyElementPresent", "verifyElementNotPresent" ],
+      "executionProfile" : "default",
+      "ignorePageLoadTimeoutException" : false,
+      "methodsPriorityOrder" : [ {
+        "left" : "XPATH",
+        "right" : true
+      }, {
+        "left" : "SMART_LOCATOR",
+        "right" : true
+      }, {
+        "left" : "BASIC",
+        "right" : true
+      }, {
+        "left" : "CSS",
+        "right" : true
+      }, {
+        "left" : "IMAGE",
+        "right" : true
+      } ],
+      "proxy" : "{\"proxyOption\":\"NO_PROXY\",\"proxyServerType\":\"HTTP\",\"username\":\"\",\"password\":\"\",\"proxyServerAddress\":\"\",\"proxyServerPort\":0,\"exceptionList\":\"\",\"applyToDesiredCapabilities\":true}",
+      "report" : {
+        "reportFolder" : "/var/folders/7m/lm7d6nx51kj0kbtnsskz6r3m0000gn/T/Katalon/Test Cases/prettyPrintExecutionSetting/20250127_082617",
+        "screenCaptureOption" : true,
+        "takeScreenshotSettings" : {
+          "enable" : true
+        },
+        "videoRecorderOption" : {
+          "allowedRecordIfFailed" : true,
+          "allowedRecordIfPassed" : false,
+          "enable" : false,
+          "recordAllTestCases" : false,
+          "useBrowserRecorder" : true,
+          "videoFormat" : "AVI",
+          "videoQuality" : "LOW"
+        }
+      },
+      "selfHealingEnabled" : false,
+      "terminateDriverAfterTestCase" : false,
+      "terminateDriverAfterTestSuite" : true,
+      "testDataInfo" : { },
+      "timeCapsuleEnabled" : false,
+      "timeout" : 30.0,
+      "useActionDelayInSecond" : "SECONDS",
       "xpathsPriority" : [ {
         "left" : "xpath:attributes",
         "right" : true
@@ -102,73 +139,36 @@ localExecutionSettingMapStorage:
       }, {
         "left" : "xpath:customAttributes",
         "right" : true
-      } ],
-      "timeout" : 30.0,
-      "actionDelay" : 0.0,
-      "methodsPriorityOrder" : [ {
-        "left" : "XPATH",
-        "right" : true
-      }, {
-        "left" : "SMART_LOCATOR",
-        "right" : true
-      }, {
-        "left" : "BASIC",
-        "right" : true
-      }, {
-        "left" : "CSS",
-        "right" : true
-      }, {
-        "left" : "IMAGE",
-        "right" : true
-      } ],
-      "proxy" : "{\"proxyOption\":\"NO_PROXY\",\"proxyServerType\":\"HTTP\",\"username\":\"\",\"password\":\"\",\"proxyServerAddress\":\"\",\"proxyServerPort\":0,\"exceptionList\":\"\",\"applyToDesiredCapabilities\":true}",
-      "defaultFailureHandling" : "STOP_ON_FAILURE",
-      "terminateDriverAfterTestCase" : false,
-      "defaultPageLoadTimeout" : 30.0,
-      "report" : {
-        "videoRecorderOption" : {
-          "enable" : false,
-          "useBrowserRecorder" : true,
-          "videoFormat" : "AVI",
-          "videoQuality" : "LOW",
-          "recordAllTestCases" : false,
-          "allowedRecordIfFailed" : true,
-          "allowedRecordIfPassed" : false
-        },
-        "takeScreenshotSettings" : {
-          "enable" : true
-        },
-        "screenCaptureOption" : true,
-        "reportFolder" : "/var/folders/7m/lm7d6nx51kj0kbtnsskz6r3m0000gn/T/Katalon/Test Cases/prettyPrintExecutionSetting/20250123_205054"
-      },
-      "enablePageLoadTimeout" : false,
-      "terminateDriverAfterTestSuite" : true,
-      "useActionDelayInSecond" : "SECONDS",
-      "testDataInfo" : { },
-      "selfHealingEnabled" : false
-    },
-    "drivers" : {
-      "system" : {
-        "WebUI" : {
-          "chromeDriverPath" : "/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/drivers/chromedriver_mac/chromedriver",
-          "browserType" : "CHROME_DRIVER"
-        }
-      },
-      "preferences" : {
-        "WebUI" : { }
-      }
+      } ]
     },
     "globalSmartWaitEnabled" : true,
-    "smartLocatorEnabled" : false,
-    "smartLocatorSettingDefaultEnabled" : true,
-    "logTestSteps" : true,
     "hideHostname" : false,
-    "current_testcase" : "Test Cases/prettyPrintExecutionSetting"
+    "logTestSteps" : true,
+    "smartLocatorEnabled" : false,
+    "smartLocatorSettingDefaultEnabled" : true
   },
-  "sessionServer.port" : 53788.0,
-  "maxFailedTests" : -1.0
+  "host" : {
+    "hostAddress" : "127.0.0.1",
+    "hostName" : "kazurayam - localhost",
+    "hostPort" : 58769.0,
+    "os" : "Mac OS X 64bit"
+  },
+  "id" : "Test Cases/prettyPrintExecutionSetting",
+  "isDebugLaunchMode" : false,
+  "katalon.buildNumber" : "223",
+  "katalon.versionNumber" : "10.0.1",
+  "logbackConfigFileLocation" : "/Applications/Katalon Studio.app/Contents/Eclipse/configuration/org.eclipse.osgi/86/0/.cp/resources/logback/logback-console.xml",
+  "maxFailedTests" : -1.0,
+  "name" : "prettyPrintExecutionSetting",
+  "pluginTestListeners" : [ "KatalonReportListener" ],
+  "projectDir" : "/Users/kazurayam/katalon-workspace/KS_RunConfigurationModifier",
+  "runningMode" : "GUI",
+  "sessionServer.host" : "localhost",
+  "sessionServer.port" : 58642.0,
+  "source" : "/Users/kazurayam/katalon-workspace/KS_RunConfigurationModifier/Test Cases/prettyPrintExecutionSetting.tc",
+  "testops" : { }
 }
-1月 23, 2025 8:51:00 午後 com.kms.katalon.core.logging.KeywordLogger endTest
+1月 27, 2025 8:26:24 午前 com.kms.katalon.core.logging.KeywordLogger endTest
 情報: END Test Cases/prettyPrintExecutionSetting
 ----
 
