@@ -1,8 +1,10 @@
 # A utility class that modifies the RunConfiguration class in Katalon Studio project
 
+back to [the project repository](https://github.com/kazurayam/KS_RunConfigurationModifier)
+
 ## Problem to solve
 
-All Katalon Studio users would be familiar with the "Project Setting &gt; Excecution" dialog of the Katalon Studio GUI as follows:
+All Katalon Studio users would be familiar with the `Project Setting > Excecution` dialog of the Katalon Studio GUI as follows:
 
 ![ProjectSettings Execution](https://kazurayam.github.io/KS_RunConfigurationModifier/images/ProjectSettings_Execution.png)
 
@@ -180,14 +182,13 @@ The call to `RunConfiguration.prettyPrintExecutionSetting()` prints the content 
 
 ### Updating `Project Settings > Execution > Default wait for element timeout`
 
-    // Test Cases/updateDefaultTimeOut
+    // Test Cases/updateTimeOut
 
     import com.kms.katalon.core.configuration.RunConfiguration
     import com.kazurayam.ks.RunConfigurationModifier
 
     println "Before updating: RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
     assert RunConfiguration.getTimeOut() == 30
-
 
     RunConfigurationModifier.implementSetTimeOut()
     RunConfiguration.setTimeOut(8)

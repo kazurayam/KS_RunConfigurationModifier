@@ -1,8 +1,10 @@
 = A utility class that modifies the RunConfiguration class in Katalon Studio project
 
+back to https://github.com/kazurayam/KS_RunConfigurationModifier[the project repository]
+
 == Problem to solve
 
-All Katalon Studio users would be familiar with the "Project Setting > Excecution" dialog of the Katalon Studio GUI as follows:
+All Katalon Studio users would be familiar with the `Project Setting > Excecution` dialog of the Katalon Studio GUI as follows:
 
 image:https://kazurayam.github.io/KS_RunConfigurationModifier/images/ProjectSettings_Execution.png[]
 
