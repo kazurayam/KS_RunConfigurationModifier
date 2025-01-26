@@ -334,4 +334,4 @@ I developed this project using Katalon Studio Free v10.0.1. I tried to run the `
 
     2025-01-26 12:38:42.954 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/prettyPrintExecutionSetting
 
-I guess that the RunConfiguration class of v9 has some fault that I can not remedy. I wouldn’t dive into this issue any more.
+I guess that the RunConfiguration class of v9 has some fault that I can not remedy. I wouldn’t dig into this issue any more.
