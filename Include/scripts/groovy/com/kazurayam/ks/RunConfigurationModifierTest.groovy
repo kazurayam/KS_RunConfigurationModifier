@@ -13,7 +13,7 @@ import com.kms.katalon.core.configuration.RunConfiguration
 
 @RunWith(JUnit4.class)
 public class RunConfigurationModifierTest {
-	
+
 	@Before
 	void setup() {
 		RunConfigurationModifier.implementPrettyPrintExecutionSetting()

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>disableLogTestStep</name>
+   <name>MergingTwoMapsTestRunner</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>af514655-167e-4423-a103-ae10a1d327c6</testCaseGuid>
+   <testCaseGuid>b2be8b6a-046f-4224-8806-d057d4ca0918</testCaseGuid>
 </TestCaseEntity>

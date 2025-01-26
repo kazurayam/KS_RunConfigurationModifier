@@ -1,13 +1,12 @@
 {
-  "keywordFileContentHash": "1075147336D62B30A8281FDF1849F602",
+  "keywordFileContentHash": "5BF649C15718F984E768EE5F1B1833DE",
   "keywordClasses": [
     {
       "name": "com.kazurayam.ks.RunConfigurationModifier",
       "keywordMethods": [
         {
           "name": "implementPrettyPrintExecutionSetting",
-          "parameters": [],
-          "javadoc": ""
+          "parameters": []
         },
         {
           "name": "updateTimeOut",
@@ -25,8 +24,7 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         },
         {
           "name": "setLogTestSteps",
@@ -44,11 +42,10 @@
                 "errorOnParsing": false
               }
             }
-          ],
-          "javadoc": ""
+          ]
         }
       ]
     }
   ],
-  "javadocParsed": true
+  "javadocParsed": false
 }
