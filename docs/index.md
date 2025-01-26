@@ -1,4 +1,4 @@
-# A utility class that modifies the RunConfiguration in Katalon Studio project
+# A utility class that modifies the RunConfiguration class in Katalon Studio project
 
 ## Problem to solve
 
@@ -185,18 +185,14 @@ The call to `RunConfiguration.prettyPrintExecutionSetting()` prints the content 
     import com.kms.katalon.core.configuration.RunConfiguration
     import com.kazurayam.ks.RunConfigurationModifier
 
-    println "Before modifying: RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
+    println "Before updating: RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
     assert RunConfiguration.getTimeOut() == 30
 
 
-    RunConfigurationModifier.updateTimeOut(8)
+    RunConfigurationModifier.implementSetTimeOut()
+    RunConfiguration.setTimeOut(8)
 
-    // the above line is the same as the following line
-    /*
-    RunConfiguration.setExecutionSetting(["execution": ["general": ["timeout": 8 ]]])
-     */
-
-    println "After  modifying: RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
+    println "After  updating: RunConfiguration.getTimeOut()=" + RunConfiguration.getTimeOut()
     assert RunConfiguration.getTimeOut() == 8
 
 When I ran this I got the following output in the console:
@@ -235,19 +231,28 @@ Please read the source of `com.kazurayam.ks.RunConfigurationModifier` classs. He
         }
 
         @Keyword
-        public static void updateTimeOut(int seconds) {
-            implementPrettyPrintExecutionSetting()
-            def update = ["execution": ["general": ["timeout": seconds ]]]
-            RunConfiguration.setExecutionSetting(update)
+        public static void implementSetTimeOut() {
+            RunConfiguration.metaClass.'static'.setTimeOut << { int seconds ->
+                localExecutionSettingMapStorage.get('execution').get('general').put('timeout', seconds)
+            }
+        }
+
+        @Keyword
+        public static void implementGetLogTestSteps() {
+            RunConfiguration.metaClass.'static'.getLogTestSteps << {
+                ->
+                return localExecutionSettingMapStorage.get('execution').get('logTestSteps')
+            }
+        }
+
+        @Keyword
+        public static void implementSetLogTestSteps() {
+            RunConfiguration.metaClass.'static'.setLogTestSteps << { boolean b ->
+                localExecutionSettingMapStorage.get('execution').put('logTestSteps', b)
+            }
         }
     }
 
-#### implementPrettyPrintExecutionSetting method
+In the `RunConfigurationModifier` class, I used the [Groovy’s Meta-programming technique](https://www.groovy-lang.org/metaprogramming.html#metaprogramming_emc). With this technique, the `prettyPrintExecutionSetting` method and others are added to the `RunConfiguration` class.
 
-In the `implementPrettyPrintExecutionSetting()` method, I used the [Groovy’s Meta-programming technique](https://www.groovy-lang.org/metaprogramming.html#metaprogramming_emc). With this technique, the `prettyPrintExecutionSetting` method is added to the `RunConfiguration` class, which converts the `localExecutionSettingMapStorage` variable of Groovy `Map` type into a pretty-formatted JSON String. The JSON tells you the internal data structure of the RunConfiguration object.
-
-#### updateTimeOut method
-
-You should find, in the `com.kms.katalon.core.configuration.RunConfiguration` class, the `setExecutionSetting(Map)` method is implemented. Using this method, it is possible to update the content of the execution setting contained in the `RunConfiguration` object. The `updateTimeOut` method of the `RunConfigurationModifier` is a mere example how to make use of this capability.
-
-If you would like, you should be able to add more methods that update other items in the `Project Setting > Execution`. Please try it yourself.
+The `implementSetTimeOut` method of the `RunConfigurationModifier` is adds the `setTimeOut(int)` method that is missing in the original `RunConfiguration` class. If you would like, you would be able to add more methods that update other items in the `Project Setting > Execution`. Please try it yourself.
