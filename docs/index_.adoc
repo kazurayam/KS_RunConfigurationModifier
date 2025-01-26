@@ -289,4 +289,4 @@ com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer fou
 2025-01-26 12:38:42.954 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/prettyPrintExecutionSetting
 ----
 
-I wouldn't dive into this issue any more.
+I guess that the RunConfiguration class of v9 has some fault that I can not manage. I wouldn't dive into this issue any more.

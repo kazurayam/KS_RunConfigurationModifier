@@ -215,6 +215,7 @@ Please read the source of `com.kazurayam.ks.RunConfigurationModifier` classs. He
 
     import com.fasterxml.jackson.databind.ObjectMapper
     import com.fasterxml.jackson.databind.ObjectWriter
+    import com.fasterxml.jackson.databind.SerializationFeature
     import com.kms.katalon.core.annotation.Keyword
     import com.kms.katalon.core.configuration.RunConfiguration
 
@@ -225,6 +226,7 @@ Please read the source of `com.kazurayam.ks.RunConfigurationModifier` classs. He
             RunConfiguration.metaClass.'static'.prettyPrintExecutionSetting << {
                 ->
                 ObjectMapper mapper = new ObjectMapper();
+                mapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
                 ObjectWriter writer = mapper.writerWithDefaultPrettyPrinter()
                 String prettyJson = writer.writeValueAsString(localExecutionSettingMapStorage)
                 return prettyJson
@@ -332,4 +334,4 @@ I developed this project using Katalon Studio Free v10.0.1. I tried to run the `
 
     2025-01-26 12:38:42.954 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/prettyPrintExecutionSetting
 
-I wouldn’t dive into this issue any more.
+I guess that the RunConfiguration class of v9 has some fault that I can not manage. I wouldn’t dive into this issue any more.
