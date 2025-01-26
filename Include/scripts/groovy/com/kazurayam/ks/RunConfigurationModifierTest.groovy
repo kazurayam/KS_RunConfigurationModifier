@@ -20,17 +20,23 @@ public class RunConfigurationModifierTest {
 	}
 
 	@Test
-	void test_updateTimeOut() {
+	void test_implementSetTimeOut() {
+		RunConfigurationModifier.implementSetTimeOut()
 		def expected = 8
-		RunConfigurationModifier.updateTimeOut(expected)
+		RunConfiguration.setTimeOut(expected)
 		def actual = RunConfiguration.getTimeOut()
 		assertThat(actual, is(expected))
 	}
 
 	@Test
-	void test_setLogTestSteps() {
-		boolean expected = false;
-		RunConfigurationModifier.setLogTestSteps(expected)
-		println RunConfiguration.prettyPrintExecutionSetting();
+	void test_implementGetAndSetLogTestSteps() {
+		RunConfigurationModifier.implementGetLogTestSteps()
+		println "logTestSteps: " + RunConfiguration.getLogTestSteps()
+		assertTrue(RunConfiguration.getLogTestSteps())
+		//
+		RunConfigurationModifier.implementSetLogTestSteps()
+		RunConfiguration.setLogTestSteps(false)
+		println "logTestSteps: " + RunConfiguration.getLogTestSteps();
+		assertFalse(RunConfiguration.getLogTestSteps())
 	}
 }

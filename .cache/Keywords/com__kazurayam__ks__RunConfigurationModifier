@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "5BF649C15718F984E768EE5F1B1833DE",
+  "keywordFileContentHash": "E1D9164AE63B958CE85C5461BC3552C5",
   "keywordClasses": [
     {
       "name": "com.kazurayam.ks.RunConfigurationModifier",
@@ -9,40 +9,16 @@
           "parameters": []
         },
         {
-          "name": "updateTimeOut",
-          "parameters": [
-            {
-              "name": "seconds",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "int",
-                "unresolvedClassName": "int",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": true,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ]
+          "name": "implementSetTimeOut",
+          "parameters": []
         },
         {
-          "name": "setLogTestSteps",
-          "parameters": [
-            {
-              "name": "b",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "boolean",
-                "unresolvedClassName": "boolean",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": true,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ]
+          "name": "implementGetLogTestSteps",
+          "parameters": []
+        },
+        {
+          "name": "implementSetLogTestSteps",
+          "parameters": []
         }
       ]
     }

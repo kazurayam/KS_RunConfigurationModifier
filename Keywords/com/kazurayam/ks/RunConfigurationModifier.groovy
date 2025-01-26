@@ -19,14 +19,24 @@ public class RunConfigurationModifier {
 	}
 
 	@Keyword
-	public static void updateTimeOut(int seconds) {
-		def update = ["execution": ["general": ["timeout": seconds ]]]
-		RunConfiguration.setExecutionSetting(update)
+	public static void implementSetTimeOut() {
+		RunConfiguration.metaClass.'static'.setTimeOut << { int seconds ->
+			localExecutionSettingMapStorage.get('execution').get('general').put('timeout', seconds)
+		}
 	}
 
 	@Keyword
-	public static void setLogTestSteps(boolean b) {
-		def update = ["execution": ["logTestSteps": b]]
-		RunConfiguration.setExecutionSetting(update)
+	public static void implementGetLogTestSteps() {
+		RunConfiguration.metaClass.'static'.getLogTestSteps << {
+			->
+			return localExecutionSettingMapStorage.get('execution').get('logTestSteps')
+		}
+	}
+
+	@Keyword
+	public static void implementSetLogTestSteps() {
+		RunConfiguration.metaClass.'static'.setLogTestSteps << { boolean b ->
+			localExecutionSettingMapStorage.get('execution').put('logTestSteps', b)
+		}
 	}
 }

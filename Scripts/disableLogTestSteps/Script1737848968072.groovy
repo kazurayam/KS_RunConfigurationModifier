@@ -1,8 +1,11 @@
 import com.kazurayam.ks.RunConfigurationModifier
 import com.kms.katalon.core.configuration.RunConfiguration
 
-RunConfigurationModifier.setLogTestSteps(false)
+RunConfigurationModifier.implementGetLogTestSteps()
+RunConfigurationModifier.implementSetLogTestSteps()
 
-RunConfigurationModifier.implementPrettyPrintExecutionSetting()
-String json = RunConfiguration.prettyPrintExecutionSetting()
-println json
+println "RunConfiguration.getLogTestSteps(): "+ RunConfiguration.getLogTestSteps()
+
+RunConfiguration.setLogTestSteps(false)
+
+println "RunConfiguration.getLogTestSteps(): "+ RunConfiguration.getLogTestSteps()
