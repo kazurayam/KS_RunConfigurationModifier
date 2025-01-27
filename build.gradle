@@ -29,7 +29,8 @@ dependencies {
     implementation fileTree(dir: "Drivers", include:['*.jar'])
     implementation "org.codehaus.groovy:groovy-all:${groovyVersion}"
     implementation fileTree(dir: "/Applications/Katalon Studio.app/Contents/Eclipse/plugins", include: ['*.jar'])
-    implementation fileTree(dir: "/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/lib", include: ['*.jar'])
+    implementation fileTree(dir: "/Applications/Katalon Studio.app/Contents/Eclipse/configuration/resources/lib", include: ['*.jar'],
+                                    exclude: ['groovy-*-fat.jar'])
 
     generateDocs "org.codehaus.groovy:groovy-all:${groovyVersion}"
 }
